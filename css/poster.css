@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eaf3ff;
+  font-family: "Pretendard", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 80px;
+}
+
+/* 시안1 */
+.leaflet {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  width: 600px;
+  background: #fff;
+  border-radius: 3%;
+  box-shadow: 0 2cqw 7.5cqw rgba(0, 0, 0, .08);
+  container-type: inline-size;
+}
+
+/* 상단 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background: linear-gradient(135deg, #0057b8, #00a6ff);
+  color: #fff;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 3cqw;
+}
+
+.head__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16cqw;
+  height: 16cqw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+}
+
+.head__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1cqw;
+}
+
+.company {
+  font-size: 6cqw;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 3cqw;
+  opacity: .95;
+}
+
+/* 서비스 */
+.services {
+  padding: 3.75cqw 5cqw;
+}
+
+.services__title {
+  margin-bottom: 3cqw;
+  text-align: center;
+  font-size: 3.5cqw;
+  font-weight: 800;
+  color: #0057b8;
+}
+
+.services__item {
+  display: grid;
+  gap: 2.5cqw;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.services__item .item {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+  background: #f5f8fd;
+  border-radius: 3cqw;
+  padding: 3cqw;
+}
+
+.services__item.item i {
+  font-size: 3.5cqw;
+  color: #0057b8;
+}
+
+.services__item .item > span {
+  font-size: 3cqw;
+  font-weight: 700;
+}
+
+/* 하단 */
+.contact {
+  padding: 3.75cqw 5cqw 5cqw;
+}
+
+.contact__badge {
+  margin-bottom: 2cqw;
+  font-size: 2.75cqw;
+  font-weight: 700;
+  text-align: center;
+  color: #0057b8;
+}
+
+.contact__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5cqw;
+  height: 12cqw;
+  background: #0057b8;
+  border-radius: 999px;
+  font-size: 4.5cqw;
+  font-weight: 800;
+  color: #fff;
+}
+
+.contact__phone i {
+  font-size: 3.5cqw;
+}
+
+.contact__desc {
+  margin-top: 2cqw;
+  text-align: center;
+  font-size: 2.75cqw;
+  color: #666;
+}
+
+/* 시안2 */
+.poster {
+  position: relative;
+  overflow: hidden;
+  width: 600px;
+  aspect-ratio: 1 / 1;
+  padding: 40px;
+  background: #ffd426;
+  border: 10px solid #151515;
+  border-radius: 36px;
+  color: #151515;
+  text-align: center;
+  container-type: inline-size;
+}
+
+.poster::before {
+  content: "";
+  position: absolute;
+  left: -12cqw;
+  top: 8cqw;
+  width: 45cqw;
+  height: 45cqw;
+  background: rgba(255, 255, 255, .35);
+  border-radius: 50%;
+}
+
+.poster::after {
+  content: "";
+  position: absolute;
+  right: -15cqw;
+  bottom: -12cqw;
+  width: 48cqw;
+  height: 48cqw;
+  background: rgba(0, 0, 0, .08);
+  border-radius: 50%;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  padding: 1.5cqw 3.5cqw;
+  background: #151515;
+  border-radius: 999px;
+  font-size: 2.6cqw;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.poster__icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1cqw;
+  width: 18cqw;
+  height: 18cqw;
+  margin: 4cqw auto;
+  background: #151515;
+  border-radius: 50%;
+  color: #ffd426;
+  font-size: 9cqw;
+  box-shadow: 0 1.5cqw 0 rgba(0, 0, 0, .18);
+}
+
+.poster__title {
+  position: relative;
+  z-index: 1;
+  font-size: 10cqw;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.poster__copy {
+  position: relative;
+  z-index: 1;
+  margin-top: 3cqw;
+  font-size: 3.2cqw;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.poster__services {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8cqw;
+  margin-top: 4cqw;
+}
+
+.poster__services > .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2cqw;
+  padding: 2.3cqw 1cqw;
+  background: #fff7c7;
+  border: .45cqw solid #151515;
+  border-radius: 2cqw;
+  font-size: 3.3cqw;
+  font-weight: 900;
+}
+
+.poster__phone {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6cqw;
+  height: 12cqw;
+  margin-top: 4cqw;
+  background: #151515;
+  border-radius: 999px;
+  font-size: 5.5cqw;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.poster__phone i {
+  font-size: 3.5cqw;
+  color: #ffd426;
+}
+
+.poster__area {
+  position: relative;
+  z-index: 1;
+  margin-top: 2cqw;
+  font-size: 2.6cqw;
+  font-weight: 800;
+}
