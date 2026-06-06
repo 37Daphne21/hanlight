@@ -1,49 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>한빛전기 | 전기공사 · 누전수리 · 전기설비 유지보수</title>
-  <meta name="description" content="한빛전기 | 전기공사, 누전수리, 분전반 제작, 조명설치, 산업시설 및 상업시설 전기설비">
-  <meta name="keywords" content="한빛전기, 전기공사, 누전수리, 분전반, 전기설비, 조명설치, 실링팬설치">
-  <meta name="author" content="한빛전기">
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한빛전기 | 전기공사 · 누전수리 · 전기설비 유지보수</title>
+<meta name="description" content="한빛전기 | 전기공사, 누전수리, 분전반 제작, 조명설치, 산업시설 및 상업시설 전기설비">
+<meta name="keywords" content="한빛전기, 전기공사, 누전수리, 분전반, 전기설비, 조명설치, 실링팬설치">
+<meta name="author" content="한빛전기">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
-  <!-- FONT / noto sans / Kr -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-  <!-- External Link -->
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+<!-- SEO -->
+<meta property="og:title" content="한빛전기">
+<meta property="og:description" content="전기공사 · 누전수리 · 전기설비 유지보수">
+<meta property="og:image" content="./images/og.jpg">
+<meta property="og:type" content="website">
+
+<!-- FONT -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- External Link -->
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/main.js" defer></script>
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="#hero" class="site-header__logo">
-        <span>⚡</span>
-        한빛전기
+  <header class="header">
+    <div class="header__inner">
+      <a href="#hero" class="header__logo">
+        <span class="logo">
+          <!-- 한빛전기 로고 SVG -->
+          <svg class="hanlight-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="한빛전기 로고" role="img">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M35 50c0-15 11-27 25-27s25 12 25 27c0 10.5-5.5 17.5-10.8 24.5H45.8C40.5 67.5 35 60.5 35 50z" stroke-width="6"/>
+              <path d="M47 84h26" stroke-width="6"/>
+              <path d="M52 95h16" stroke-width="6"/>
+              <path d="M47 46v26" stroke-width="9"/>
+              <path d="M73 46v26" stroke-width="9"/>
+              <path d="M47 59h26" stroke-width="9"/>
+            </g>
+          </svg>
+          <!-- //한빛전기 로고 SVG -->
+        </span>
+        <span class="logo-title">한빛전기</span>
       </a>
 
-      <button type="button" class="site-header__menu-button" aria-label="메뉴 열기">
+      <button type="button" class="header__menu-button" aria-label="메뉴 열기">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="site-header__nav">
+      <nav class="header__nav">
         <a href="#hero">Home</a>
         <a href="#about">소개</a>
+        <a href="#career">경력</a>
         <a href="#service">작업분야</a>
         <a href="#works">시공사례</a>
+        <a href="#partner">파트너</a>
         <a href="#contact">문의</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section id="hero" class="hero">
       <div class="hero__circuit">
         <span class="hero__line hero__line--1"></span>
@@ -52,22 +75,24 @@
         <span class="hero__line hero__line--4"></span>
         <span class="hero__node hero__node--1"></span>
         <span class="hero__node hero__node--2"></span>
+        <span class="hero__node hero__node--3"></span>
       </div>
 
       <div class="hero__content">
-        <p class="hero__eyebrow">30여 년 현장 경험</p>
+        <p class="hero__eyebrow">30년 경력 전기 기술자</p>
         <h1 class="hero__title">한빛전기</h1>
-        <p class="hero__text">산업시설 · 상업시설 · 주거공간 전기공사 및 유지보수</p>
+        <p class="hero__text">전기공사 · 누전수리 · 전기설비 유지보수</p>
 
         <div class="hero__button-wrap">
-          <a href="tel:01000000000" class="hero__button hero__button--primary">전화 문의하기</a>
-          <a href="#" class="hero__button hero__button--secondary">시공 사례 보기</a>
+          <a href="tel:01052481468" class="hero__button hero__button--primary">전화 문의하기</a>
+          <a href="#works" class="hero__button hero__button--secondary">시공 사례 보기</a>
         </div>
       </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="about">
-      <div class="about__inner">
+      <div class="inner about__inner">
         <div class="section-heading">
           <p class="section-heading__eyebrow">About Hanbit Electric</p>
           <h2 class="section-heading__title">
@@ -88,43 +113,62 @@
       </div>
     </section>
 
+    <!-- Career -->
     <section id="career" class="career">
-      <div class="career__inner">
-        <div class="section-heading section-heading--center">
-          <p class="section-heading__eyebrow">License & Career</p>
-          <h2 class="section-heading__title">검증된 경력과 자격</h2>
-        </div>
+      <div class="inner career__inner">
+        <div class="career__wrap">
+          <div class="career__license">
+            <img src="./images/license.jpg" alt="한빛전기 전기공사기사 1급 자격증">
+            <p>국가기술자격 전기공사기사 1급 보유</p>
+          </div>
 
-        <div class="career__grid">
-          <article class="career__card">
-            <span class="career__number">01</span>
-            <h3>전기공사기사 1급</h3>
-            <p>국가기술자격증 보유</p>
-          </article>
+          <div class="career__content">
+            <div class="section-heading">
+              <p class="section-heading__eyebrow">License & Career</p>
+              <h2 class="section-heading__title">
+                검증된 경력과 자격으로<br>
+                책임 있게 시공합니다.
+              </h2>
+            </div>
 
-          <article class="career__card">
-            <span class="career__number">02</span>
-            <h3>서울과학기술대학교</h3>
-            <p>전기공학과 졸업</p>
-          </article>
+            <p class="career__text">
+              서울교통공사 근무 경력과 30여 년의 현장 경험을 바탕으로
+              산업시설, 상업시설, 주거공간의 전기설비를 안전하게 시공합니다.
+            </p>
 
-          <article class="career__card">
-            <span class="career__number">03</span>
-            <h3>서울교통공사 근무</h3>
-            <p>공공 전기설비 현장 경험</p>
-          </article>
+            <div class="career__grid">
+              <article class="career__card">
+                <span class="career__number">01</span>
+                <h3>전기공사기사 1급</h3>
+                <p>국가기술자격증 보유</p>
+              </article>
 
-          <article class="career__card">
-            <span class="career__number">04</span>
-            <h3>30여 년 현장 경험</h3>
-            <p>공장, 상가, 주거공간 시공 경험</p>
-          </article>
+              <article class="career__card">
+                <span class="career__number">02</span>
+                <h3>서울과학기술대학교</h3>
+                <p>전기공학과 졸업</p>
+              </article>
+
+              <article class="career__card">
+                <span class="career__number">03</span>
+                <h3>서울교통공사 근무</h3>
+                <p>공공 전기설비 현장 경험</p>
+              </article>
+
+              <article class="career__card">
+                <span class="career__number">04</span>
+                <h3>30여 년 현장 경험</h3>
+                <p>공장, 상가, 주거공간 시공 경험</p>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Service -->
     <section id="service" class="service">
-      <div class="service__inner">
+      <div class="inner service__inner">
         <div class="section-heading">
           <p class="section-heading__eyebrow">Services</p>
           <h2 class="section-heading__title">
@@ -135,37 +179,37 @@
 
         <div class="service__grid">
           <article class="service__card">
-            <span>01</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span>
             <h3>누전 점검 및 수리</h3>
             <p>전기 이상, 차단기 내려감, 누전 의심 상황을 점검하고 수리합니다.</p>
           </article>
 
           <article class="service__card">
-            <span>02</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-solid fa-plug"></i></span>
             <h3>전기 배선 공사</h3>
             <p>상가, 공장, 주거공간의 환경에 맞춰 안전하게 배선 작업을 진행합니다.</p>
           </article>
 
           <article class="service__card">
-            <span>03</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-solid fa-server"></i></span>
             <h3>분전반 제작 및 교체</h3>
             <p>현장 조건에 맞는 분전반 제작, 정리, 교체 작업을 진행합니다.</p>
           </article>
 
           <article class="service__card">
-            <span>04</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></span>
             <h3>조명 · 실링팬 설치</h3>
             <p>매장 조명, 실내 조명, 실링팬 등 생활 전기 작업도 가능합니다.</p>
           </article>
 
           <article class="service__card">
-            <span>05</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-solid fa-building"></i></span>
             <h3>상업시설 전기공사</h3>
             <p>카페, 베이커리, 상가, 사무실 등 영업공간 전기공사를 진행합니다.</p>
           </article>
 
           <article class="service__card">
-            <span>06</span>
+            <span class="service__icon" aria-hidden="true"><i class="fa-solid fa-gear"></i></span>
             <h3>산업시설 유지보수</h3>
             <p>공장 및 산업 현장의 전기설비 점검과 유지보수를 도와드립니다.</p>
           </article>
@@ -173,8 +217,9 @@
       </div>
     </section>
 
+    <!-- Works -->
     <section id="works" class="works">
-      <div class="works__inner">
+      <div class="inner works__inner">
         <div class="section-heading section-heading--center">
           <p class="section-heading__eyebrow">Portfolio</p>
           <h2 class="section-heading__title">시공 사례</h2>
@@ -216,8 +261,9 @@
       </div>
     </section>
 
+    <!-- Partner -->
     <section id="partner" class="partner">
-      <div class="partner__inner">
+      <div class="inner partner__inner">
         <div class="partner__content">
           <p class="section-heading__eyebrow">Partner</p>
           <h2>인테리어 시공도<br>함께 상담 가능합니다.</h2>
@@ -234,28 +280,66 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="contact">
-      <div class="contact__inner">
+      <div class="inner contact__inner">
         <div>
           <p class="section-heading__eyebrow">Contact</p>
           <h2>전기공사 문의는 전화로 편하게 연락 주세요.</h2>
           <p>상담 가능 시간 06:00 ~ 21:00 / 평일·주말 상담 가능</p>
         </div>
 
-        <a href="tel:01000000000" class="contact__button">전화 문의하기</a>
-      </div>
-    </section>
-
-    <section class="daughter-note">
-      <div class="daughter-note__inner">
-        <p>
-          현장 경험은 30년이 넘지만, 남아 있는 사진은 생각보다 많지 않았습니다.
-          그래도 아버지가 오래 해오신 일들을 딸이 하나씩 정리해 보았습니다.
-        </p>
-        <span>웹퍼블리셔 딸 올림</span>
+        <a href="tel:01052481468" class="contact__button">전화 문의하기</a>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="inner footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <strong>한빛전기</strong>
+          <p>전기공사 · 누전수리 · 전기설비 유지보수</p>
+        </div>
+
+        <div class="footer__info">
+          <dl>
+            <div>
+              <dt>대표</dt>
+              <dd>이창섭</dd>
+            </div>
+            <div>
+              <dt>사업자등록번호</dt>
+              <dd>740-52-00505</dd>
+            </div>
+            <div>
+              <dt>전화</dt>
+              <dd><a href="tel:01052481468">010-5248-1468</a></dd>
+            </div>
+            <div>
+              <dt>상담시간</dt>
+              <dd>06:00 ~ 21:00 / 평일·주말 상담 가능</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="footer__note">
+        <strong>딸의 기록</strong>
+        <p>
+          아버지는 오랜 시간 전기 기술자로 일해오셨지만, 정작 현장 사진은 많이 남아 있지 않았습니다.
+          전기일에 집중하느라 기록보다는 늘 현장이 먼저였기 때문입니다.
+        </p>
+        <p>
+          이 홈페이지는 그동안의 경험과 작업들을 조금씩 기록해두기 위해 딸이 직접 만들었습니다.
+          아직은 담지 못한 이야기와 현장들이 더 많지만, 앞으로 하나씩 채워나가려 합니다.
+        </p>
+        <span>한빛전기의 여정에 함께해 주셔서 감사합니다.</span>
+      </div>
+
+      <p class="footer__copy">© Hanbit Electric. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
