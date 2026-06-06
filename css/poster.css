@@ -98,8 +98,8 @@ body {
   align-items: center;
   gap: 2cqw;
   background: #f5f8fd;
-  border-radius: 3cqw;
-  padding: 3cqw;
+  border-radius: 2cqw;
+  padding: 2.4cqw;
 }
 
 .services__item.item i {
