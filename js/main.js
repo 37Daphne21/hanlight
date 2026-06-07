@@ -269,10 +269,14 @@ if (works) {
     }
   });
 
+  let windowWidth = window.innerWidth;
+
   window.addEventListener('resize', () => {
+    if (window.innerWidth === windowWidth) return;
+
+    windowWidth = window.innerWidth;
     resetItems();
   });
-
   updateTabCounts();
   updateItems();
 }
