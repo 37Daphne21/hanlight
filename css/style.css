@@ -226,6 +226,14 @@ section {
   letter-spacing: -.04em;
 }
 
+.inner .section-heading__disclaimer {
+  margin-top: 12px;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
 /* Hero */
 .hero {
   position: relative;
@@ -281,6 +289,7 @@ section {
 }
 
 .hero__text {
+  display: block;
   margin: clamp(20px, 1.95vw, 28px) 0 0;
   color: rgba(255, 255, 255, .88);
   font-size: clamp(20px, 2.2vw, 34px);
@@ -423,6 +432,7 @@ section {
 
 .about__content {
   display: grid;
+  align-items: center;
   grid-template-columns: .9fr 1fr;
   gap: clamp(54px, 6.25vw, 90px);
 }
@@ -668,7 +678,8 @@ section {
   color: #fff;
   text-align: left;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease;
 }
 
 .works__overlay strong {
@@ -1058,11 +1069,6 @@ section {
   transform: scale(1.08);
 }
 
-.works__overlay {
-  transform: translateY(8px);
-  transition: opacity .25s ease, transform .25s ease;
-}
-
 .works__card:hover .works__overlay {
   opacity: 1;
   transform: translateY(0);
@@ -1277,6 +1283,7 @@ button:focus-visible {
     justify-content: flex-end;
     padding: 16px;
     opacity: 1;
+    transform: translateY(0);
     background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent);
   }
 
