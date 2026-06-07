@@ -24,7 +24,6 @@ const works = document.querySelector('.works');
 if (works) {
   const tabs = works.querySelectorAll('.works__tab');
   const items = Array.from(works.querySelectorAll('.works__item'));
-  const cards = Array.from(works.querySelectorAll('.works__card'));
   const moreButton = works.querySelector('.works__more');
   const modal = works.querySelector('.works-modal');
   const modalImage = works.querySelector('.works-modal__figure img');
@@ -40,17 +39,46 @@ if (works) {
   let modalItems = [];
   let currentIndex = 0;
   let showCount = window.innerWidth <= 768 ? 6 : 8;
+  let lastFocusedElement = null;
 
   const getShowStep = () => {
     return window.innerWidth <= 768 ? 6 : 8;
   };
 
-  const updateItems = () => {
-    showCount = getShowStep();
+  const getColumnCount = () => {
+    if (window.innerWidth <= 768) return 2;
+    if (window.innerWidth <= 1024) return 3;
+    return 4;
+  };
 
+  const adjustShowCount = () => {
+    const columnCount = getColumnCount();
+    const remainingCount = visibleItems.length - showCount;
+
+    if (remainingCount > 0 && remainingCount < columnCount) {
+      showCount = visibleItems.length;
+    }
+  };
+
+  const updateMoreButton = () => {
+    const hasMore = visibleItems.length > getShowStep();
+    const isLastPage = showCount >= visibleItems.length;
+
+    moreButton.classList.toggle('is-hidden', !hasMore);
+    moreButton.textContent = isLastPage ? '닫기' : '더 보기';
+    moreButton.setAttribute('aria-expanded', String(isLastPage));
+  };
+
+  const updateItems = () => {
     visibleItems = items.filter((item) => {
       return currentFilter === 'all' || item.dataset.category === currentFilter;
     });
+
+    if (showCount > visibleItems.length) {
+      showCount = visibleItems.length;
+    }
+
+    adjustShowCount();
 
     items.forEach((item) => {
       const isMatched = currentFilter === 'all' || item.dataset.category === currentFilter;
@@ -63,17 +91,44 @@ if (works) {
       item.classList.toggle('is-more-hidden', index >= showCount);
     });
 
-    moreButton.classList.toggle('is-hidden', visibleItems.length <= showCount);
+    updateMoreButton();
   };
 
-  const showMoreItems = () => {
-    showCount += getShowStep();
+  const resetItems = () => {
+    showCount = getShowStep();
+    updateItems();
+  };
 
-    visibleItems.forEach((item, index) => {
-      item.classList.toggle('is-more-hidden', index >= showCount);
+  const toggleMoreItems = () => {
+    const isLastPage = showCount >= visibleItems.length;
+
+    if (isLastPage) {
+      showCount = getShowStep();
+
+      works.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      showCount += getShowStep();
+    }
+
+    updateItems();
+  };
+
+  const updateTabs = (activeTab) => {
+    tabs.forEach((tab) => {
+      const isActive = tab === activeTab;
+
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-pressed', String(isActive));
     });
+  };
 
-    moreButton.classList.toggle('is-hidden', visibleItems.length <= showCount);
+  const getFocusableElements = () => {
+    return Array.from(modal.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter((element) => {
+      return !element.disabled;
+    });
   };
 
   const renderModal = () => {
@@ -85,6 +140,10 @@ if (works) {
     modalImage.alt = image.alt;
     modalTitle.textContent = card.dataset.title;
     modalDesc.textContent = card.dataset.desc;
+
+    const isSingle = modalItems.length <= 1;
+    modalPrev.disabled = isSingle;
+    modalNext.disabled = isSingle;
   };
 
   const openModal = (item) => {
@@ -94,19 +153,30 @@ if (works) {
 
     currentIndex = modalItems.indexOf(item);
 
+    if (currentIndex < 0) return;
+
+    lastFocusedElement = document.activeElement;
+
     renderModal();
     modal.classList.add('is-active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modalClose.focus();
   };
 
   const closeModal = () => {
     modal.classList.remove('is-active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   };
 
   const moveModal = (direction) => {
+    if (modalItems.length <= 1) return;
+
     currentIndex += direction;
 
     if (currentIndex < 0) {
@@ -121,12 +191,12 @@ if (works) {
   };
 
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      tabs.forEach((item) => item.classList.remove('is-active'));
-      tab.classList.add('is-active');
+    tab.setAttribute('aria-pressed', tab.classList.contains('is-active') ? 'true' : 'false');
 
+    tab.addEventListener('click', () => {
+      updateTabs(tab);
       currentFilter = tab.dataset.filter;
-      updateItems();
+      resetItems();
     });
   });
 
@@ -138,7 +208,8 @@ if (works) {
     });
   });
 
-  moreButton.addEventListener('click', showMoreItems);
+  moreButton.setAttribute('aria-expanded', 'false');
+  moreButton.addEventListener('click', toggleMoreItems);
 
   modalClose.addEventListener('click', closeModal);
   modalDim.addEventListener('click', closeModal);
@@ -165,6 +236,26 @@ if (works) {
     if (event.key === 'ArrowRight') {
       moveModal(1);
     }
+
+    if (event.key === 'Tab') {
+      const focusableElements = getFocusableElements();
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      }
+
+      if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    resetItems();
   });
 
   updateItems();
