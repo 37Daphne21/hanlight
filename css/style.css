@@ -1002,6 +1002,51 @@ section {
   text-align: center;
 }
 
+/* Hover */
+.hero__button,
+.works__tab,
+.works__more,
+.contact__button {
+  transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.hero__button:hover,
+.works__more:hover,
+.contact__button:hover {
+  transform: translateY(-3px);
+}
+
+.hero__button--primary:hover {
+  background: #7dd3fc;
+  box-shadow: 0 14px 34px rgba(56, 189, 248, .28);
+}
+
+.hero__button--secondary:hover {
+  border-color: #7dd3fc;
+  background: rgba(56, 189, 248, .16);
+}
+
+.works__tab:not(.is-active):hover {
+  border-color: #222;
+  color: #222;
+}
+
+.works__more:hover {
+  background: #222;
+  color: #fff;
+}
+
+.contact__button:hover {
+  background: #0284c7;
+  box-shadow: 0 16px 36px rgba(2, 132, 199, .24);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, .8);
+  outline-offset: 4px;
+}
+
 /* Keyframes */
 @keyframes circuitFlow {
   0% {
