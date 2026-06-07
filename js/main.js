@@ -116,6 +116,21 @@ if (works) {
     updateItems();
   };
 
+  const updateTabCounts = () => {
+  tabs.forEach((tab) => {
+    const filter = tab.dataset.filter;
+    const countElement = tab.querySelector('.works__tab-count');
+
+    if (!countElement) return;
+
+    const count = filter === 'all'
+      ? items.length
+      : items.filter((item) => item.dataset.category === filter).length;
+
+    countElement.textContent = count;
+  });
+};
+
   const updateTabs = (activeTab) => {
     tabs.forEach((tab) => {
       const isActive = tab === activeTab;
@@ -258,5 +273,66 @@ if (works) {
     resetItems();
   });
 
+  updateTabCounts();
   updateItems();
 }
+
+
+/* Scroll Reveal */
+const revealItems = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.classList.add('is-visible');
+    observer.unobserve(entry.target);
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+});
+
+revealItems.forEach((item) => {
+  revealObserver.observe(item);
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const revealItems = document.querySelectorAll('.reveal');
+
+  if (revealItems.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealItems.forEach((item) => {
+      revealObserver.observe(item);
+    });
+  }
+
+  const header = document.querySelector('.header');
+
+  if (header) {
+    const handleHeaderScroll = () => {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
+        return;
+      }
+
+      header.classList.remove('is-scrolled');
+    };
+
+    handleHeaderScroll();
+    window.addEventListener('scroll', handleHeaderScroll);
+  }
+});
